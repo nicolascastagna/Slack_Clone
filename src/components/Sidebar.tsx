@@ -11,6 +11,7 @@ import PeopleAlt from '@mui/icons-material/PeopleAlt';
 import AppsIcon from '@mui/icons-material/Apps';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import AddIcon from '@mui/icons-material/Add';
 import SideBarOption from './SideBarOption';
 
 function Sidebar() {
@@ -36,6 +37,7 @@ function Sidebar() {
         <hr />
         <SideBarOption Icon={ExpandMore} title="Channels"/>
         <hr />
+        <SideBarOption Icon={AddIcon} addChannelOption title="Add Channel"/>
     </SideBarContainer>
   )
 }
@@ -49,6 +51,12 @@ const SideBarContainer = styled.div`
     border-top: 1px solid #49274b;
     max-width: 260px;
     margin-top: 60px;
+
+    > hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #49274b;
+    }
 `;
 const SideBarHeader = styled.div`
     display: flex;

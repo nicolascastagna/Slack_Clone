@@ -4,11 +4,22 @@ import styled from "styled-components";
 interface Props {
     Icon: any;
     title: string;
+    addChannelOption?: boolean;
   }
 
-function SideBarOption({Icon, title}: Props) {
+function SideBarOption({Icon, title, addChannelOption}: Props) {
+
+    const addChannel = () => {
+        
+    }
+    const selectChannel = () => {
+        
+    }
+
   return (
-    <SidebarOptionContainer>
+    <SidebarOptionContainer
+    onClick={addChannelOption ? addChannel : selectChannel}
+    >
         {Icon && <Icon fontSize="small" style={{padding: 10}} />}
         {Icon ? (
             <h3>{title}</h3>
