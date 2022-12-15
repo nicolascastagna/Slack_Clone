@@ -1,19 +1,28 @@
 import React from 'react'
 import styled from "styled-components";
+import { db } from '../firebase';
 
 interface Props {
-    Icon: any;
-    title: string;
+    Icon?: any;
+    title?: string;
     addChannelOption?: boolean;
+    id?:string;
+    name?: string;
   }
 
 function SideBarOption({Icon, title, addChannelOption}: Props) {
 
     const addChannel = () => {
-        
+        const channelName = prompt("Please enter the channel name");
+
+        if (channelName) {
+            db.collection("rooms").add({
+                name: channelName,
+            })
+        }
     }
     const selectChannel = () => {
-        
+
     }
 
   return (

@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 const App: React.FunctionComponent = () => {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/*" element={<Error404 />} /> */}
