@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import Chat from "../components/Chat";
 import styled from "styled-components";
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
       <Header />
       <AppBody>
         <Sidebar />
+        <Chat />
       </AppBody>
     </div>
   );

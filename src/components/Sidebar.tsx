@@ -67,7 +67,6 @@ function Sidebar() {
         <SideBarOption
           key={doc.id}
           id={doc.id}
-          addChannelOption
           title={doc.name}
         />
       ))}
