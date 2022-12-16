@@ -34,7 +34,6 @@ function Sidebar() {
     }),
     []
   );
-  console.log(channels, "rooms");
 
   return (
     <SideBarContainer>
