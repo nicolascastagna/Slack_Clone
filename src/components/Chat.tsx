@@ -7,12 +7,21 @@ import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { db } from '../firebase';
 import Message from './Message';
 import { NewChatType } from '../types/ChatType';
+import { useEffect, useRef } from 'react';
 
 function Chat() {
+    const chatRef = useRef<HTMLInputElement | null>(null);
+
     const roomId = useSelector(selectRoomId);
     const [roomDetails]:any = useDocument(roomId && db.collection('rooms').doc(roomId))
-    const [roomMessages]:any = useCollection(roomId && db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp', 'asc'));
+    const [roomMessages, loading]:any = useCollection(roomId && db.collection('rooms').doc(roomId).collection('messages').orderBy('timestamp', 'asc'));
     
+    useEffect(() => {
+     chatRef?.current?.scrollIntoView({
+        behavior: "smooth",
+     });
+    }, [roomId, loading])
+
   return (
     <ChatContainer>
         <>
@@ -43,7 +52,11 @@ function Chat() {
                 )
                 })}
         </ChatMessages>
+                <ChatBottom 
+                ref={chatRef}
+                />
             <ChatInput
+            chatRef={chatRef}
             channelName={roomDetails?.data().name}
             channelId={roomId}
             />
@@ -97,4 +110,8 @@ const HeaderRight = styled.div`
 
 const ChatMessages = styled.div`
     
+`;
+
+const ChatBottom = styled.div`
+    padding-bottom: 200px;
 `;

@@ -7,9 +7,10 @@ import firebase from 'firebase/compat/app';
 interface Props {
     channelName?: string;
     channelId?: string;
+    chatRef?: any;
   }
 
-function ChatInput({channelName, channelId}:Props) {
+function ChatInput({channelName, channelId, chatRef}:Props) {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const sendMessage = (e:any) => {
@@ -24,6 +25,9 @@ function ChatInput({channelName, channelId}:Props) {
             user: "Nicolas Castagna",
             userImage: "https://cdn-icons-png.flaticon.com/512/456/456283.png",
         });
+        chatRef?.current?.scrollIntoView({
+            behavior: "smooth",
+         });
         (document.getElementById("inputMessage") as HTMLInputElement).value = "";
     }
 

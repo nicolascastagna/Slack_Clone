@@ -16,7 +16,7 @@ function Message({message, timestamp, user, userImage}:Props) {
             <h4>
                 {user}{" "}
                 <span>
-                    {new Date(timestamp?.toDate()).toLocaleString()}
+                    {new Date(timestamp?.toDate()).toLocaleTimeString()}
                 </span>
             </h4>
             <p>{message}</p>
