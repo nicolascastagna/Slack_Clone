@@ -24,15 +24,7 @@ function SideBarOption({Icon, title, addChannelOption, id}: Props) {
             })
         }
     }
-    // const selectChannel = () => {
-    //     if (id) {
-    //         return (dispatch: any) => {
-    //             dispatch(enterRoom({
-    //                 roomId: id, 
-    //             }))
-    //         }
-    //     }
-    // }
+    
     const selectChannel = () => {
         if (id) {
                 dispatch(enterRoom({

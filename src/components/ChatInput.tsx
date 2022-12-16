@@ -22,7 +22,7 @@ function ChatInput({channelName, channelId}:Props) {
             message: inputRef?.current?.value,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             user: "Nicolas Castagna",
-            userImage: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffr%2Ficone-gratuite%2Futilisateur_149071&psig=AOvVaw2Wa2HlvZ6yw72xHkd9oYv2&ust=1671273320152000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJComLj4_fsCFQAAAAAdAAAAABAT",
+            userImage: "https://cdn-icons-png.flaticon.com/512/456/456283.png",
         });
         (document.getElementById("inputMessage") as HTMLInputElement).value = "";
     }
