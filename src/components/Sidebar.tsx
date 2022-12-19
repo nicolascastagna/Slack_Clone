@@ -17,9 +17,12 @@ import SideBarOption from "./SideBarOption";
 import { DocumentData, onSnapshot, QuerySnapshot } from "firebase/firestore";
 import { channelsCollections } from "../lib/channelCollection";
 import { NewChannelType } from "../types/channels";
+import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Sidebar() {
     const [channels, setChannels] = useState<NewChannelType[]>([]);
+    const [user] = useAuthState(auth as any)
 
   useEffect(() => 
     onSnapshot(channelsCollections, (snapshot:QuerySnapshot<DocumentData>) => {
@@ -42,7 +45,7 @@ function Sidebar() {
           <h2>Team Work</h2>
           <h3>
             <FiberManualRecord />
-            Nicolas Castagna
+           {user?.displayName as string}
           </h3>
         </SideBarInfo>
         <CreateIcon />

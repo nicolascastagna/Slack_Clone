@@ -1,8 +1,9 @@
 import { Button } from '@mui/material';
 import React, { useRef } from 'react'
 import styled from "styled-components";
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 import firebase from 'firebase/compat/app';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 interface Props {
     channelName?: string;
@@ -12,6 +13,7 @@ interface Props {
 
 function ChatInput({channelName, channelId, chatRef}:Props) {
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const [user] = useAuthState(auth as any)
 
     const sendMessage = (e:any) => {
         e.preventDefault();
@@ -22,8 +24,8 @@ function ChatInput({channelName, channelId, chatRef}:Props) {
         db.collection("rooms").doc(channelId).collection("messages").add({
             message: inputRef?.current?.value,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            user: "Nicolas Castagna",
-            userImage: "https://cdn-icons-png.flaticon.com/512/456/456283.png",
+            user: user?.displayName as string,
+            userImage: user?.photoURL as string,
         });
         chatRef?.current?.scrollIntoView({
             behavior: "smooth",

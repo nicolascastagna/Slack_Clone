@@ -15,6 +15,8 @@ function Header() {
       <HeaderLeft>
         <HeaderAvatar 
         onClick={() => auth.signOut()}
+        src={user?.photoURL! as string}
+        alt={user?.displayName! as string}
         />
         <AccessTimeIcon />
       </HeaderLeft>
