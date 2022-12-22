@@ -37,7 +37,7 @@ function Sidebar() {
     }),
     []
   );
-
+  
   return (
     <SideBarContainer>
       <SideBarHeader>
@@ -48,7 +48,9 @@ function Sidebar() {
            {user?.displayName as string}
           </h3>
         </SideBarInfo>
-        <CreateIcon />
+        <CreateIcon onClick={() => {
+         window.location.reload()
+        }}/>
       </SideBarHeader>
       <SideBarOption Icon={InsertComment} title="Threads" />
       <SideBarOption Icon={Inbox} title="Mentions & reactions" />
@@ -64,7 +66,6 @@ function Sidebar() {
       <SideBarOption Icon={AddIcon} addChannelOption title="Add Channel" />
       {channels && channels.length ? (
         <div>
-          
             {channels?.map((doc) => (
         <SideBarOption
           key={doc.id}
@@ -72,7 +73,6 @@ function Sidebar() {
           title={doc.name}
         />
       ))}
-          
         </div>
       ) : null}
     </SideBarContainer>
@@ -106,6 +106,7 @@ const SideBarHeader = styled.div`
     font-size: 18px;
     background-color: white;
     border-radius: 999px;
+    cursor: pointer;
   }
 `;
 const SideBarInfo = styled.div`

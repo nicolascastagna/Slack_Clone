@@ -16,7 +16,7 @@ function SideBarOption({Icon, title, addChannelOption, id}: Props) {
     const dispatch = useDispatch();
 
     const addChannel = () => {
-        const channelName = prompt("Please enter the channel name");
+        const channelName = prompt("Please enter the channel name")?.toLowerCase();
 
         if (channelName) {
             db.collection("rooms").add({
@@ -32,7 +32,7 @@ function SideBarOption({Icon, title, addChannelOption, id}: Props) {
                 }))
         }
     }
-
+    
   return (
     <SidebarOptionContainer
     onClick={addChannelOption ? addChannel : selectChannel}

@@ -9,7 +9,7 @@ import Message from './Message';
 import { NewChatType } from '../types/ChatType';
 import { useEffect, useRef } from 'react';
 
-function Chat() {
+function Chat() { 
     const chatRef = useRef<HTMLInputElement | null>(null);
 
     const roomId = useSelector(selectRoomId);
@@ -28,7 +28,7 @@ function Chat() {
         <>
         <Header>
             <HeaderLeft>
-                <h4><strong>#{roomDetails?.data().name}</strong></h4>
+                    <h4><strong>#{roomDetails?.data().name}</strong></h4>
                 <StarBorderOutlined />
             </HeaderLeft>
             <HeaderRight>
@@ -41,7 +41,7 @@ function Chat() {
         <ChatMessages>
             {roomMessages?.docs.map((doc: NewChatType) => {
                 const { message, timestamp, user, userImage} = doc.data();
-
+                
                 return (
                     <Message 
                     key={doc.id}
@@ -110,9 +110,8 @@ const HeaderRight = styled.div`
     }
 `;
 
-const ChatMessages = styled.div`
-    
-`;
+const ChatMessages = styled.div``;
+
 
 const ChatBottom = styled.div`
     padding-bottom: 200px;
