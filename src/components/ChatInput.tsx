@@ -36,10 +36,8 @@ function ChatInput({channelName, channelId, chatRef}:Props) {
   return (
     <ChatInputContainer>
         <form>
-            {channelId ? (
+            {channelId && (
                 <input ref={inputRef} id="inputMessage" placeholder={`Send a message #${channelName}`}/>
-            ) : (
-                <input ref={inputRef} id="inputMessage" placeholder={`Write a new message`}/>
             )}
             <Button hidden type='submit' onClick={sendMessage}>
                 Send
